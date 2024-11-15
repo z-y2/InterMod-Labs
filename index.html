@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main>
+    <!-- Initial File Selection Screen -->
+    <section id="converter-interface">
+      <div id="background">
+        <img src="images/1.png" alt="Background" />
+      </div>
+
+      <div id="rectangle" onclick="triggerFileUpload()"></div>
+      <input type="file" id="fileInput" style="display: none;" accept=".txt, .csv, .json">
+
+      <div id="title">
+        <img src="images/Ultimate File Converter (3).png" alt="Ultimate File Converter" />
+      </div>
+    </section>
+
+    <!-- Second Screen After File Selection -->
+    <section id="second-screen" style="display: none;">
+      <!-- Background Image for the Second Screen -->
+      <div class="second-background">
+        <img src="images/2.png" alt="Background" />
+      </div>
+
+      <!-- Group 6 Image and Text -->
+      <div class="group-6">
+        <img src="images/image.png" alt="Image 1" />
+        <p class="demo-text">Prototype_demo.png</p>
+      </div>
+
+      <!-- Delete Icon -->
+      <div class="delete-icon">
+        <img src="images/delete-icon.png" alt="Delete Icon" />
+      </div>
+
+      <!-- Rectangle 16 and 17 -->
+      <div class="rectangle-16"></div>
+      <div class="rectangle-17"></div>
+
+      <!-- Title Image -->
+      <div class="title-image">
+        <img src="images/Ultimate File Converter (3).png" alt="Ultimate File Converter" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 File Converter. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
