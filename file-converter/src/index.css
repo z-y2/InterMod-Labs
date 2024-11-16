@@ -1,0 +1,188 @@
+/* for any element that is not in the app.js page*/
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* General Body Styling */
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+} */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Styles for Initial Screen - #converter-interface */
+#converter-interface {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+  margin: 0 auto;
+}
+
+#background {
+  position: absolute;
+  width: 1366px;
+  height: 768px;
+  left: 37px;
+  top: 128px;
+}
+
+#background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#rectangle {
+  position: absolute;
+  width: 922px;
+  height: 504px;
+  left: 259px;
+  top: 259px;
+  background: rgba(217, 217, 217, 0.01);
+  cursor: pointer; /* Makes cursor a finger pointer */
+}
+
+#title {
+  position: absolute;
+  width: 696px;
+  height: 153px;
+  left: 372px;
+  top: 846px;
+}
+
+#title img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Second Screen Styles - #second-screen */
+#second-screen {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  display: none; /* Hidden by default */
+}
+
+/* Second Screen Background */
+.second-background {
+  position: absolute;
+  width: 1366px;
+  height: 768px;
+  left: 37px;
+  top: 128px;
+}
+
+.second-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Group 6 */
+.group-6 {
+  position: absolute;
+  left: 17.22%;
+  right: 61.43%;
+  top: 33.11%;
+  bottom: 57.13%;
+}
+
+.group-6 img {
+  width: auto;
+  height: auto;
+}
+
+.demo-text {
+  position: absolute;
+  left: 23.09%;
+  top: 37.21%;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #050505;
+}
+
+/* Delete Icon */
+.delete-icon {
+  position: absolute;
+  width: 31px;
+  height: 29px;
+  left: 555px;
+  top: 381px;
+}
+
+.delete-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Rectangle 16 */
+.rectangle-16 {
+  position: absolute;
+  width: 258px;
+  height: 260px;
+  left: 887px;
+  top: 395px;
+  background: rgba(217, 217, 217, 0.01);
+}
+
+/* Rectangle 17 */
+.rectangle-17 {
+  position: absolute;
+  width: 419px;
+  height: 230px;
+  left: 232px;
+  top: 504px;
+  background: #D9D9D9;
+  opacity: 0;
+}
+
+/* Title Image */
+.title-image {
+  position: absolute;
+  width: 696px;
+  height: 153px;
+  left: 404px;
+  top: 835px;
+}
+
+.title-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #666;
+}
