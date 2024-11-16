@@ -51,12 +51,22 @@ main {
   object-fit: cover;
 }
 
-#rectangle {
+#rec_file_input {
   position: absolute;
   width: 922px;
   height: 504px;
   left: 259px;
   top: 259px;
+  background: rgba(217, 217, 217, 0.01);
+  cursor: pointer; /* Makes cursor a finger pointer */
+}
+
+#rec_convert_button {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 890px;
+  top: 400px;
   background: rgba(217, 217, 217, 0.01);
   cursor: pointer; /* Makes cursor a finger pointer */
 }
@@ -82,7 +92,6 @@ main {
   height: 1024px;
   background-color: #FFFFFF;
   margin: 0 auto;
-  display: none; /* Hidden by default */
 }
 
 /* Second Screen Background */
@@ -114,10 +123,24 @@ main {
   height: auto;
 }
 
-.demo-text {
+.file-name-container {
   position: absolute;
-  left: 23.09%;
-  top: 37.21%;
+  width: 310px;  
+  height: 60px;  
+  left: 31%;
+  top: 40.5%;  
+  transform: translate(-50%, -50%);
+  border: 1.5px solid #0c7fd7;  
+  border-radius: 8px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);  
+}
+
+
+.demo-text {
+  position: static; 
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -126,6 +149,12 @@ main {
   text-align: center;
   letter-spacing: 0.5px;
   color: #050505;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Delete Icon */
@@ -133,8 +162,8 @@ main {
   position: absolute;
   width: 31px;
   height: 29px;
-  left: 555px;
-  top: 381px;
+  left: 605px;
+  top: 400px;
 }
 
 .delete-icon img {
