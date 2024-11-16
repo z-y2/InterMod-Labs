@@ -71,6 +71,34 @@ main {
   cursor: pointer; /* Makes cursor a finger pointer */
 }
 
+.grey_arrow {
+  position: absolute;
+  width: 272px;
+  height: 250px;
+  left: 1098px;
+  top: 655px;
+}
+
+.grey_arrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blue_square {
+  position: absolute;
+  width: 425px;
+  height: 425px;
+  left: 628px;
+  top: 584px;
+}
+
+.blue_square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 #title {
   position: absolute;
   width: 696px;
@@ -78,6 +106,8 @@ main {
   left: 372px;
   top: 846px;
 }
+
+
 
 #title img {
   width: 100%;

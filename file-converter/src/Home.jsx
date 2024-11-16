@@ -35,7 +35,7 @@ export const Home = () => {
       {!fileSelected ? (
         <section id="converter-interface">
           <div id="background">
-            <img src="/images/1.png" alt="Background" />
+            <img src="/images/start_page.png" alt="Background" />
           </div>
           <div id="rec_file_input" onClick={triggerFileUpload}></div>
           <input
@@ -46,24 +46,24 @@ export const Home = () => {
             onChange={handleFileChange}
           />
           <div id="title">
-            <img src="/images/Ultimate File Converter (3).png" alt="Ultimate File Converter" />
+            <img src="/images/bottom1.png" alt="Ultimate File Converter" />
           </div>
         </section>
       ) : (
         <section id="second-screen">
           <div className="second-background">
-            <img src="/images/2.png" alt="Background" />
+            <img src="/images/file_selection.png" alt="Background" />
           </div>
           <div className="file-name-container">
           <p className="demo-text">{fileName}</p>
           </div>
           <div className="delete-icon" onClick={handleDelete}>
-            <img src="/images/delete-icon.png" alt="Delete Icon" />
+            <img src="/images/delete_icon.png" alt="Delete Icon" />
           </div>
           <div className="rectangle-16"></div>
           <div className="rectangle-17"></div>
           <div className="title-image">
-            <img src="/images/Ultimate File Converter (3).png" alt="Ultimate File Converter" />
+            <img src="/images/bottom1.png" alt="Ultimate File Converter" />
           </div>
           <div id="rec_convert_button" onClick={handleConvert}></div>
         </section>
