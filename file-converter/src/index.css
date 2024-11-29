@@ -75,8 +75,8 @@ main {
   position: absolute;
   width: 272px;
   height: 250px;
-  left: 1098px;
-  top: 655px;
+  left: 1158px;
+  top: 371px;
 }
 
 .grey_arrow img {
@@ -89,8 +89,8 @@ main {
   position: absolute;
   width: 425px;
   height: 425px;
-  left: 628px;
-  top: 584px;
+  left: 698px;
+  top: 304px;
 }
 
 .blue_square img {
@@ -103,7 +103,7 @@ main {
   position: absolute;
   width: 696px;
   height: 153px;
-  left: 372px;
+  left: 572px;
   top: 846px;
 }
 
@@ -156,8 +156,8 @@ main {
 .file-name-container {
   position: absolute;
   width: 310px;  
-  height: 60px;  
-  left: 31%;
+  height: auto;  
+  left: 25%;
   top: 40.5%;  
   transform: translate(-50%, -50%);
   border: 1.5px solid #0c7fd7;  
@@ -168,6 +168,43 @@ main {
   background: rgba(255, 255, 255, 0.75);  
 }
 
+.drop_down_container {
+  position: absolute;
+  width: 310px;  
+  height: auto;  
+  left: 54%;
+  top: 50%;  
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.file-extension-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.file-extension-item label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.file-extension-select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.file-extension-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
 
 .demo-text {
   position: static; 
@@ -192,8 +229,8 @@ main {
   position: absolute;
   width: 31px;
   height: 29px;
-  left: 605px;
-  top: 400px;
+  left: 595px;
+  top: 375px;
 }
 
 .delete-icon img {
@@ -205,10 +242,10 @@ main {
 /* Rectangle 16 */
 .rectangle-16 {
   position: absolute;
-  width: 258px;
-  height: 260px;
-  left: 887px;
-  top: 395px;
+  width: 140px;
+  height: 150px;
+  left: 557px;
+  top: 835px;
   background: rgba(217, 217, 217, 0.01);
 }
 
@@ -217,10 +254,11 @@ main {
   position: absolute;
   width: 419px;
   height: 230px;
-  left: 232px;
-  top: 504px;
-  background: #D9D9D9;
+  left: 218px;
+  top: 488px;
+  background: #ffffff;
   opacity: 0;
+  cursor: pointer;
 }
 
 /* Title Image */
@@ -230,6 +268,7 @@ main {
   height: 153px;
   left: 404px;
   top: 835px;
+
 }
 
 .title-image img {
@@ -245,3 +284,4 @@ footer {
   font-size: 14px;
   color: #666;
 }
+
