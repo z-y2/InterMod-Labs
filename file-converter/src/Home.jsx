@@ -34,10 +34,10 @@ export const Home = () => {
             accept=".txt, .csv, .json, .png, .jpg, .jpeg, .heic"
             onChange={handleFileChange}
           />
-          <div id="title">
-            <img src="/images/bottom1.png" alt="Ultimate File Converter" />
-          </div>
         </section>
+        <div id="title">
+          <img src="/images/bottom1.png" alt="Ultimate File Converter" />
+        </div>
     </main>
   );
 }
