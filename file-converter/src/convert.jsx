@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Convert = () => {
@@ -10,15 +10,22 @@ export const Convert = () => {
 
   const [selectedExtensions, setSelectedExtensions] = useState(
     fileNames.reduce((acc, fileName) => {
-      acc[fileName] = ''; // Initialize each file with no extension selected
+      acc[fileName] = ''; 
       return acc;
     }, {})
   );
 
-
+  const allExtensionsSelected = useMemo(() => {
+    return fileNames.every(fileName => selectedExtensions[fileName] !== '');
+  }, [fileNames, selectedExtensions]);
 
   const handleDelete = (file) => {
     setFileNames(fileNames.filter((name) => name !== file));
+    setSelectedExtensions(prev => {
+        const newExtensions = {...prev};
+        delete newExtensions[file];
+        return newExtensions;
+    });
   }
 
   const handleConvert = () => {
@@ -30,7 +37,16 @@ export const Convert = () => {
     if (files && files.length > 0) {
       const newFileNames = Array.from(files).map((file) => file.name);
       setFileNames((prevFileNames) => [...prevFileNames, ...newFileNames]);
+    
+        setSelectedExtensions(prev => {
+            const newExtensions = {...prev};
+            newFileNames.forEach(fileName => {
+            newExtensions[fileName] = '';
+            });
+            return newExtensions;
+        });
     }
+
     event.target.value = '';
   }
 
@@ -52,9 +68,16 @@ export const Convert = () => {
                 <img src="/images/choose_type_base.png" alt="Background"/>
             </div>
         </section>
-        <div className='grey_arrow'>
-            <img src='/images/arrow_grey.png' alt="Grey Arrow" />
-        </div>
+
+        {!allExtensionsSelected ? (
+            <div className='grey_arrow'>
+                <img src='/images/arrow_grey.png' alt="Grey Arrow" />
+            </div>
+        ):(
+            <div className="convert_rectangle" onClick={handleConvert}></div>
+        )}
+e 
+
         <div className='blue_square'>
             <img src='/images/blue_square.png' alt="Blue square" />
         </div>
