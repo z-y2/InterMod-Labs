@@ -261,6 +261,17 @@ main {
   cursor: pointer;
 }
 
+.convert_rectangle {
+  position: absolute;
+  width: 230px;
+  height: 245px;
+  left: 1178px;
+  top: 378px;
+  background: #ffffff;
+  opacity: 0;
+  cursor: pointer;
+}
+
 /* Title Image */
 .title-image {
   position: absolute;
