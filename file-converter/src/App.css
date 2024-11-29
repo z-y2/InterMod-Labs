@@ -38,3 +38,17 @@
     transform: rotate(360deg);
   }
 }
+
+.page {
+	/* padding: 30px; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+	flex-direction: column;
+	font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+}

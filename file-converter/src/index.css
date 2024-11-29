@@ -51,7 +51,7 @@ main {
   object-fit: cover;
 }
 
-#rectangle {
+#rec_file_input {
   position: absolute;
   width: 922px;
   height: 504px;
@@ -61,13 +61,53 @@ main {
   cursor: pointer; /* Makes cursor a finger pointer */
 }
 
+#rec_convert_button {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 890px;
+  top: 400px;
+  background: rgba(217, 217, 217, 0.01);
+  cursor: pointer; /* Makes cursor a finger pointer */
+}
+
+.grey_arrow {
+  position: absolute;
+  width: 272px;
+  height: 250px;
+  left: 1158px;
+  top: 371px;
+}
+
+.grey_arrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blue_square {
+  position: absolute;
+  width: 425px;
+  height: 425px;
+  left: 698px;
+  top: 304px;
+}
+
+.blue_square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 #title {
   position: absolute;
   width: 696px;
   height: 153px;
-  left: 372px;
+  left: 572px;
   top: 846px;
 }
+
+
 
 #title img {
   width: 100%;
@@ -82,7 +122,6 @@ main {
   height: 1024px;
   background-color: #FFFFFF;
   margin: 0 auto;
-  display: none; /* Hidden by default */
 }
 
 /* Second Screen Background */
@@ -114,10 +153,61 @@ main {
   height: auto;
 }
 
-.demo-text {
+.file-name-container {
   position: absolute;
-  left: 23.09%;
-  top: 37.21%;
+  width: 310px;  
+  height: auto;  
+  left: 25%;
+  top: 40.5%;  
+  transform: translate(-50%, -50%);
+  border: 1.5px solid #0c7fd7;  
+  border-radius: 8px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);  
+}
+
+.drop_down_container {
+  position: absolute;
+  width: 310px;  
+  height: auto;  
+  left: 54%;
+  top: 50%;  
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.file-extension-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.file-extension-item label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.file-extension-select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.file-extension-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.demo-text {
+  position: static; 
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -126,6 +216,12 @@ main {
   text-align: center;
   letter-spacing: 0.5px;
   color: #050505;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Delete Icon */
@@ -133,8 +229,8 @@ main {
   position: absolute;
   width: 31px;
   height: 29px;
-  left: 555px;
-  top: 381px;
+  left: 595px;
+  top: 375px;
 }
 
 .delete-icon img {
@@ -146,10 +242,10 @@ main {
 /* Rectangle 16 */
 .rectangle-16 {
   position: absolute;
-  width: 258px;
-  height: 260px;
-  left: 887px;
-  top: 395px;
+  width: 140px;
+  height: 150px;
+  left: 557px;
+  top: 835px;
   background: rgba(217, 217, 217, 0.01);
 }
 
@@ -158,10 +254,11 @@ main {
   position: absolute;
   width: 419px;
   height: 230px;
-  left: 232px;
-  top: 504px;
-  background: #D9D9D9;
+  left: 218px;
+  top: 488px;
+  background: #ffffff;
   opacity: 0;
+  cursor: pointer;
 }
 
 /* Title Image */
@@ -171,6 +268,7 @@ main {
   height: 153px;
   left: 404px;
   top: 835px;
+
 }
 
 .title-image img {
@@ -186,3 +284,4 @@ footer {
   font-size: 14px;
   color: #666;
 }
+
