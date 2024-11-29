@@ -29,7 +29,14 @@ export const Convert = () => {
   }
 
   const handleConvert = () => {
-    navigate("/loading");
+    navigate("/loading", { 
+        state: { 
+          files: fileNames.map(fileName => ({
+            name: fileName,
+            extension: selectedExtensions[fileName]
+          }))
+        } 
+    });
   }
 
   const handleAddFile = (event) => {
@@ -141,7 +148,6 @@ e
         <div id="title">
             <img src="/images/bottom1.png" alt="Ultimate File Converter" />
         </div>
-
 
     </main>
   );
