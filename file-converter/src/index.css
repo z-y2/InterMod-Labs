@@ -441,3 +441,68 @@ label {
   cursor: pointer; /* Make label clickable */
 }
 
+
+
+
+/* Container for the toggle switch */
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Styling for the toggle switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+/* Circle that moves when toggled */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+/* When the toggle is checked, move the circle to the right */
+input:checked + .slider {
+  background-color: #ccc;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+/* Label styling */
+.toggle-labels {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100px;
+  margin-top: 10px;
+}
+

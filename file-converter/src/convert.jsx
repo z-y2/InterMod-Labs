@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Convert = () => {
@@ -8,9 +8,18 @@ export const Convert = () => {
 
   const [fileNames, setFileNames] = useState(location.state?.fileNames || []);
 
+  const [batchMode, setBatchMode] = useState(false);
+
   const [selectedExtensions, setSelectedExtensions] = useState(
     fileNames.reduce((acc, fileName) => {
-      acc[fileName] = { extension: '', isCompressed: false }; 
+      acc[fileName] = ''; 
+      return acc;
+    }, {})
+  );
+
+  const [selectedCompression, setSelectedCompressions] = useState(
+    fileNames.reduce((acc, fileName) => {
+      acc[fileName] = false; 
       return acc;
     }, {})
   );
@@ -34,7 +43,8 @@ export const Convert = () => {
           files: fileNames.map(fileName => ({
             name: fileName,
             extension: selectedExtensions[fileName],
-            isCompressed: selectedExtensions[fileName]?.isCompressed || false
+            isCompressed: selectedCompression[fileName],
+            batchMode: batchMode,
           }))
         } 
     });
@@ -49,10 +59,7 @@ export const Convert = () => {
         setSelectedExtensions(prev => {
             const newExtensions = {...prev};
             newFileNames.forEach(fileName => {
-              newExtensions[fileName] = {
-                extension: '',
-                isCompressed: false
-              };
+              newExtensions[fileName] = '';
             });
             return newExtensions;
         });
@@ -73,13 +80,15 @@ export const Convert = () => {
   };
 
   const handleCompressionChange = (fileName) => {
-    setSelectedExtensions((prevState) => ({
-      ...prevState,
-      [fileName]: {
-        ...prevState[fileName],
-        isCompressed: !prevState[fileName]?.isCompressed, 
-      },
+    setSelectedCompressions(prev => ({
+      ...prev,
+      [fileName]: !prev[fileName],
     }));
+  };
+
+  const handleBatchToggle = () => {
+    setBatchMode(prev => !prev);
+    console.log(batchMode);
   };
 
   return (
@@ -102,6 +111,8 @@ export const Convert = () => {
         <div className='blue_square'>
             <img src='/images/blue_square.png' alt="Blue square" />
         </div>
+
+
         <div className="file-name-container">
           <ul>
             {fileNames.map((fileName, index) => (
@@ -125,38 +136,58 @@ export const Convert = () => {
           </ul>
         </div>
         <div className="drop_down_container">
-          {fileNames.map((fileName, index) => (
-              <div 
-                  key={index} 
-                  className="file-extension-item"
-              >
-                <label
-                    htmlFor={`extension-select-${index}`}
-                >
-                    {fileName}
+
+          <div className="toggle-container">
+            <div className="toggle-labels">
+              <span className={batchMode ? "label-left" : ""}>Individual</span>
+            </div>
+
+            <label className="toggle-switch">
+              <input type="checkbox" checked={batchMode} onChange={handleBatchToggle} />
+              <span className="slider"></span>
+            </label>
+            
+            <div className="toggle-labels">
+              <span className={!batchMode ? "label-right" : ""}>Batch</span>
+            </div>
+
+          </div>
+
+
+          {!batchMode ? (
+            fileNames.map((fileName, index) => (
+              <div key={index} className="file-extension-item">
+                <label htmlFor={`extension-select-${index}`}>
+                  {fileName}
                 </label>
 
                 <div className="checkbox-container">
-                <select
+                  <select
                     id={`extension-select-${index}`}
                     value={selectedExtensions[fileName]}
                     onChange={(e) => handleExtensionChange(fileName, e.target.value)}
                     className="file-extension-select"
-                >
+                  >
                     <option value="" disabled>Select File Extension</option>
                     <option value=".jpg">.jpg</option>
                     <option value=".png">.png</option>
                     <option value=".pdf">.pdf</option>
                     <option value=".jpeg">.jpeg</option>
-                </select>
+                  </select>
 
-                <input type="checkbox" id="compress" name="compress" onChange={() => handleCompressionChange(fileName)} />
-                <label htmlFor="compress">Compress</label>
-
+                  <input
+                    type="checkbox"
+                    id={`compress-${index}`} 
+                    name={`compress-${index}`} 
+                    onChange={() => handleCompressionChange(fileName)}
+                  />
+                  <label htmlFor={`compress-${index}`}>Compress</label>  {/* Match label to unique checkbox id */}
                 </div>
-
               </div>
-            ))}
+            ))
+          ) : null}
+
+
         </div>
         <div className="rectangle-17" onClick={triggerFileUpload}></div>
             <input
