@@ -4,6 +4,7 @@ import './index.css';
 import { Home } from './Home'; 
 import { Convert } from './convert';
 import { Loading } from './loading';
+import { Download } from './download';
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
         <Route path="/convert" element={<Convert />} />
 
         <Route path="/loading" element={<Loading />} />
+
+        <Route path="/download" element={<Download />} />
 
         {/* Redirect any unknown paths to Home */}
         <Route path="*" element={<Navigate to="/" />} />

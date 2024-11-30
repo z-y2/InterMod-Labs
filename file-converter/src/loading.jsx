@@ -8,14 +8,16 @@ export const Loading = () => {
 
     const { state } = location;
     const { files } = state || {};
+    
 
     useEffect(() => {
+        console.log(files);
         const timer = setTimeout(() => {
-          navigate("/download", { state: { files } }); 
+            navigate("/download", { state: { files } }); 
         }, 3000); 
-    
+
         return () => clearTimeout(timer);
-      }, [navigate, files]);
+    }, [navigate, files]);
 
     return (
         <main>

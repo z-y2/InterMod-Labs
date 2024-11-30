@@ -58,7 +58,7 @@ main {
   left: 259px;
   top: 259px;
   background: rgba(217, 217, 217, 0.01);
-  cursor: pointer; /* Makes cursor a finger pointer */
+  cursor: pointer; 
 }
 
 #rec_convert_button {
@@ -68,7 +68,7 @@ main {
   left: 890px;
   top: 400px;
   background: rgba(217, 217, 217, 0.01);
-  cursor: pointer; /* Makes cursor a finger pointer */
+  cursor: pointer; 
 }
 
 .grey_arrow {
@@ -323,6 +323,15 @@ footer {
   width: 100%;
 }
 
+.file-item2 {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0); 
+  padding: 1rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
 .file-icon {
   font-size: 2rem;
   margin-right: 1rem;
@@ -331,6 +340,18 @@ footer {
 .file-icon img {
   width: 40px; 
   height: 40px; 
+  object-fit: contain; 
+}
+
+.file-icon2 {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.file-icon2 img {
+  width: 40px; 
+  height: 40px; 
+  cursor: pointer;
   object-fit: contain; 
 }
 
@@ -364,4 +385,41 @@ footer {
   to {
     width: 100%;
   }
+}
+
+.file-conversion-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  position: relative;
+}
+
+.arrow img{
+  width: 900px; 
+  height: 40px; 
+}
+
+.button-divider {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  gap: 1rem; 
+  margin: 2rem 0; 
+}
+
+
+.download-all-button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  background-color: #69c8ff; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease;
+}
+
+.download-all-button:hover {
+  background-color: #289cdf; 
 }
