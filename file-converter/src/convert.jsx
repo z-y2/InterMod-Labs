@@ -83,7 +83,7 @@ export const Convert = () => {
         ):(
             <div className="convert_rectangle" onClick={handleConvert}></div>
         )}
-e 
+
 
         <div className='blue_square'>
             <img src='/images/blue_square.png' alt="Blue square" />
