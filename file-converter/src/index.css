@@ -423,3 +423,21 @@ footer {
 .download-all-button:hover {
   background-color: #289cdf; 
 }
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between checkbox and label */
+  font-size: 1rem; /* Adjust label text size */
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer; /* Show pointer when hovering over the checkbox */
+}
+
+label {
+  cursor: pointer; /* Make label clickable */
+}
+

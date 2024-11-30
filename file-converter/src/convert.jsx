@@ -10,13 +10,13 @@ export const Convert = () => {
 
   const [selectedExtensions, setSelectedExtensions] = useState(
     fileNames.reduce((acc, fileName) => {
-      acc[fileName] = ''; 
+      acc[fileName] = { extension: '', isCompressed: false }; 
       return acc;
     }, {})
   );
 
   const allExtensionsSelected = useMemo(() => {
-    return fileNames.every(fileName => selectedExtensions[fileName] !== '');
+    return fileNames.every(fileName => selectedExtensions[fileName][0] !== '');
   }, [fileNames, selectedExtensions]);
 
   const handleDelete = (file) => {
@@ -33,7 +33,8 @@ export const Convert = () => {
         state: { 
           files: fileNames.map(fileName => ({
             name: fileName,
-            extension: selectedExtensions[fileName]
+            extension: selectedExtensions[fileName],
+            isCompressed: selectedExtensions[fileName]?.isCompressed || false
           }))
         } 
     });
@@ -48,7 +49,10 @@ export const Convert = () => {
         setSelectedExtensions(prev => {
             const newExtensions = {...prev};
             newFileNames.forEach(fileName => {
-            newExtensions[fileName] = '';
+              newExtensions[fileName] = {
+                extension: '',
+                isCompressed: false
+              };
             });
             return newExtensions;
         });
@@ -65,6 +69,16 @@ export const Convert = () => {
     setSelectedExtensions(prev => ({
       ...prev,
       [fileName]: extension
+    }));
+  };
+
+  const handleCompressionChange = (fileName) => {
+    setSelectedExtensions((prevState) => ({
+      ...prevState,
+      [fileName]: {
+        ...prevState[fileName],
+        isCompressed: !prevState[fileName]?.isCompressed, 
+      },
     }));
   };
 
@@ -111,30 +125,37 @@ export const Convert = () => {
           </ul>
         </div>
         <div className="drop_down_container">
-            {fileNames.map((fileName, index) => (
-                <div 
-                    key={index} 
-                    className="file-extension-item"
+          {fileNames.map((fileName, index) => (
+              <div 
+                  key={index} 
+                  className="file-extension-item"
+              >
+                <label
+                    htmlFor={`extension-select-${index}`}
                 >
-                    <label
-                        htmlFor={`extension-select-${index}`}
-                    >
-                        {fileName}
-                    </label>
+                    {fileName}
+                </label>
 
-                    <select
-                        id={`extension-select-${index}`}
-                        value={selectedExtensions[fileName]}
-                        onChange={(e) => handleExtensionChange(fileName, e.target.value)}
-                        className="file-extension-select"
-                    >
-                        <option value="" disabled>Select File Extension</option>
-                        <option value=".jpg">.jpg</option>
-                        <option value=".png">.png</option>
-                        <option value=".pdf">.pdf</option>
-                        <option value=".jpeg">.jpeg</option>
-                    </select>
+                <div className="checkbox-container">
+                <select
+                    id={`extension-select-${index}`}
+                    value={selectedExtensions[fileName]}
+                    onChange={(e) => handleExtensionChange(fileName, e.target.value)}
+                    className="file-extension-select"
+                >
+                    <option value="" disabled>Select File Extension</option>
+                    <option value=".jpg">.jpg</option>
+                    <option value=".png">.png</option>
+                    <option value=".pdf">.pdf</option>
+                    <option value=".jpeg">.jpeg</option>
+                </select>
+
+                <input type="checkbox" id="compress" name="compress" onChange={() => handleCompressionChange(fileName)} />
+                <label htmlFor="compress">Compress</label>
+
                 </div>
+
+              </div>
             ))}
         </div>
         <div className="rectangle-17" onClick={triggerFileUpload}></div>
