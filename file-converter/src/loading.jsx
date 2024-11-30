@@ -11,7 +11,6 @@ export const Loading = () => {
     
 
     useEffect(() => {
-        console.log(files);
         const timer = setTimeout(() => {
             navigate("/download", { state: { files } }); 
         }, 3000); 
