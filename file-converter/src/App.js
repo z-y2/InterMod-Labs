@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
-import { Home } from './Home'; 
-import { Convert } from './convert';
-import { Loading } from './loading';
-import { Download } from './download';
+import { Home } from './pages/home'; 
+import { Convert } from './pages/convert';
+import { Loading } from './pages/loading';
+import { Download } from './pages/download';
 
 const App = () => {
   return (

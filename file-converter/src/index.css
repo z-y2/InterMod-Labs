@@ -31,10 +31,11 @@ main {
 
 /* Styles for Initial Screen - #converter-interface */
 #converter-interface {
-  position: relative;
-  width: 1440px;
-  height: 1024px;
-  margin: 0 auto;
+  display: flex;
+  /*position: relative;*/
+  /*width: 1440px;*/
+  /*height: 1024px;*/
+  /*margin: 0 auto;*/
 }
 
 #background {
@@ -100,11 +101,12 @@ main {
 }
 
 #title {
-  position: absolute;
+  position: relative;
   width: 696px;
   height: 153px;
   left: 572px;
   top: 846px;
+  margin: 0 auto;
 }
 
 
