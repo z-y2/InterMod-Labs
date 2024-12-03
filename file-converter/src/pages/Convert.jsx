@@ -94,6 +94,7 @@ export const Convert = () => {
   return (
     <main>
       <section id='converter-interface'>
+        {/*TODO: replace with table*/}
         <div id='background'>
           <img src="/images/choose_type_base.png" alt="Background" />
         </div>

@@ -22,6 +22,7 @@ export const Home = () => {
   return (
     <main>
       <section id="converter-interface">
+        {/*TODO: replace with table*/}
         <div id="background">
           <img src="/images/start_page.png" alt="Background" />
         </div>
