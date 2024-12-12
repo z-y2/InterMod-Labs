@@ -10,6 +10,8 @@ export const Convert = () => {
 
   const [batchMode, setBatchMode] = useState(false);
 
+  const [batchExtension, setBatchExtension] = useState(".jpg");
+
   const [selectedExtensions, setSelectedExtensions] = useState(
     fileNames.reduce((acc, fileName) => {
       acc[fileName] = '';
@@ -87,42 +89,54 @@ export const Convert = () => {
   };
 
   const handleBatchExtensionChange = (value) => {
+    setBatchExtension(value);
+
+    const newExtensions = {};
     fileNames.forEach((fileName) => {
-      setSelectedCompressions(prev => ({
-        ...prev,
-        [fileName]: value,
-      }));
+      newExtensions[fileName] = value;
     });
+
+    setSelectedExtensions(newExtensions);
+
+    console.log(newExtensions); //TODO: remove
   };
 
   const handleBatchCompressionChange = () => {
+    // TODO: fix. but like not really
+    const firstCompression = selectedCompression[fileNames[0]] || false;
+    const newCompressions = {};
+
+    fileNames.forEach((fileName) => {
+      newCompressions[fileName] = !firstCompression;
+    });
+
+    setSelectedCompressions(newCompressions);
   }
 
-  // when batch is on: write the currently selected extention option for fileNames[0] into all extensions || ".jpg"
-  // off: 
   const handleBatchToggle = () => {
     setBatchMode(prev => !prev);
 
     // if batch mode, set all compression to what is in fileName[0]
     const firstCompression = selectedCompression[fileNames[0]] || false;
 
+    // Create a new object for selected compressions
+    const newCompressions = {};
     fileNames.forEach((fileName) => {
-      setSelectedCompressions(prev => ({
-        ...prev,
-        [fileName]: firstCompression,
-      }));
+      newCompressions[fileName] = firstCompression; // Set to firstCompression
     });
+
+    setSelectedCompressions(newCompressions);
 
     const firstExtension = selectedExtensions[fileNames[0]] || ".jpg";
 
+    const newExtensions = {};
     fileNames.forEach((fileName) => {
-      setSelectedExtensions(prev => ({
-        ...prev,
-        [fileName]: firstExtension,
-      }));
+      newExtensions[fileName] = firstExtension; // Set to firstExtension
     });
 
-    console.log(batchMode);
+    setSelectedExtensions(newExtensions);
+
+    console.log(newExtensions); //TODO: remove
   };
 
   return (
@@ -229,7 +243,7 @@ export const Convert = () => {
             <div className="checkbox-container">
               <select
                 id={`extension-select`}
-                value={selectedExtensions[fileNames[0]] || ".jpg"}
+                value={batchExtension}
                 onChange={(e) => handleBatchExtensionChange(e.target.value)}
                 className="file-extension-select"
               >
