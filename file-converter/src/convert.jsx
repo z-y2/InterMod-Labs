@@ -86,8 +86,42 @@ export const Convert = () => {
     }));
   };
 
+  const handleBatchExtensionChange = (value) => {
+    fileNames.forEach((fileName) => {
+      setSelectedCompressions(prev => ({
+        ...prev,
+        [fileName]: value,
+      }));
+    });
+  };
+
+  const handleBatchCompressionChange = () => {
+  }
+
+  // when batch is on: write the currently selected extention option for fileNames[0] into all extensions || ".jpg"
+  // off: 
   const handleBatchToggle = () => {
     setBatchMode(prev => !prev);
+
+    // if batch mode, set all compression to what is in fileName[0]
+    const firstCompression = selectedCompression[fileNames[0]] || false;
+
+    fileNames.forEach((fileName) => {
+      setSelectedCompressions(prev => ({
+        ...prev,
+        [fileName]: firstCompression,
+      }));
+    });
+
+    const firstExtension = selectedExtensions[fileNames[0]] || ".jpg";
+
+    fileNames.forEach((fileName) => {
+      setSelectedExtensions(prev => ({
+        ...prev,
+        [fileName]: firstExtension,
+      }));
+    });
+
     console.log(batchMode);
   };
 
@@ -179,14 +213,44 @@ export const Convert = () => {
                   type="checkbox"
                   id={`compress-${index}`}
                   name={`compress-${index}`}
+                  // toggles compression for specific file
                   onChange={() => handleCompressionChange(fileName)}
                 />
                 <label htmlFor={`compress-${index}`}>Compress</label>  {/* Match label to unique checkbox id */}
               </div>
             </div>
           ))
-        ) : null}
+        ) : (
+          <div className="file-extension-item"> {/* key={index} */}
+            <label htmlFor={`extension-select`}>
+              All Files
+            </label>
 
+            <div className="checkbox-container">
+              <select
+                id={`extension-select`}
+                value={selectedExtensions[fileNames[0]] || ".jpg"}
+                onChange={(e) => handleBatchExtensionChange(e.target.value)}
+                className="file-extension-select"
+              >
+                <option value="" disabled>Select File Extension</option>
+                <option value=".jpg">.jpg</option>
+                <option value=".png">.png</option>
+                <option value=".pdf">.pdf</option>
+                <option value=".jpeg">.jpeg</option>
+              </select>
+
+              <input
+                type="checkbox"
+                id={`compress-batch`}
+                name={`compress-batch`}
+                onChange={() => handleBatchCompressionChange()}
+              />
+              <label htmlFor={`compress-batch`}>Compress</label>  {/* Match label to unique checkbox id */}
+            </div>
+          </div>
+        )
+        }
 
       </div>
       <div className="rectangle-17" onClick={triggerFileUpload}></div>
